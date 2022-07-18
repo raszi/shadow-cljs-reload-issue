@@ -1,0 +1,25 @@
+#+title: Shadow CLJS reloading issue
+#+options: toc:nil
+
+** Shadow CLJS Reloading Issue
+
+*** Environment
+
+| Component           | Version        |
+|---------------------+----------------|
+| Node                | ~v18.1.0~      |
+| create-cljs-project | ~v0.0.7~       |
+| Clojure CLI         | ~v1.11.1.1149~ |
+| OpenJDK             | ~11.0.15~      |
+
+*** Reproduction steps
+
+1. Run ~npm install~
+2. Run ~npx shadow-cljs node-repl~
+3. Load the namespace in the REPL after loaded: ~(require 'shadow-cljs-reload-issue.core :reload)~
+4. Change ~src/main/shadow_cljs_reload_issue/core.cljs~ to include something or run the following command in a separate terminal:
+   #+begin_src bash
+perl -pi -e 's/:main/:foobar/g' src/main/shadow_cljs_reload_issue/core.cljs
+   #+end_src
+5. Reload the namespace in the REPL ~(require 'shadow-cljs-reload-issue.core :reload)~
+6. See that it still prints ~:main~
