@@ -1,9 +1,7 @@
 #+title: Shadow CLJS reloading issue
 #+options: toc:nil
 
-** Shadow CLJS Reloading Issue
-
-*** Environment
+** Environment
 
 | Component           | Version        |
 |---------------------+----------------|
@@ -12,7 +10,7 @@
 | Clojure CLI         | ~v1.11.1.1149~ |
 | OpenJDK             | ~11.0.15~      |
 
-*** Reproduction steps
+** Reproduction steps
 
 1. Run ~npm install~
 2. Run ~npx shadow-cljs node-repl~
